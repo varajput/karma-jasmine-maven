@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>Karma-Testing</groupId>
+    <artifactId>Karma-Testing</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>Karma-Testing Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>Karma-Testing</finalName>
+        <plugins>
+            <plugin>
+                <groupId>com.kelveden</groupId>
+                <artifactId>maven-karma-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <configFile>src/karma.conf.js</configFile>
+
+                    <reportsDirectory>${project.build.directory}/karma-reports</reportsDirectory>
+                    <browsers>PhantomJS</browsers>
+                    <autoWatch>false</autoWatch>
+                    <singleRun>true</singleRun>
+                    <colors>true</colors>
+                    <skipKarma>false</skipKarma>
+                    <skipTests>false</skipTests>
+                    <karmaFailureIgnore>false</karmaFailureIgnore>
+                    <reporters>dots,junit</reporters>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
