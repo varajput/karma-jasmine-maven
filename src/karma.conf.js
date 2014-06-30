@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Fri Jun 27 2014 17:11:05 GMT-0400 (Eastern Daylight Time)
+// Generated on Sat Jun 28 2014 14:14:44 GMT-0400 (Eastern Daylight Time)
 
 module.exports = function(config) {
   config.set({
@@ -15,9 +15,17 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/main/webapp/js/*.js',
       'main/webapp/js/*.js',
-      'test/js/spec/*.js'
+        'test/js/spec/*.js',        
+          // fixtures
+          {
+            pattern: 'test/fixtures/*.html',
+            watched: true,
+            included: false,
+            served: true
+          },
+            'http://code.jquery.com/jquery-1.9.1.min.js',
+            'test/js/lib/jasmine-jquery.js'
     ],
 
 
@@ -30,14 +38,15 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-    
+      '**/main/webapp/js/*.js': 'coverage',
+        '**/test/js/spec/*.js': 'coverage'
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+     reporters: ['progress','coverage'],
 
 
     // web server port
@@ -54,12 +63,12 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode

@@ -1,9 +1,13 @@
 
   describe("test", function() {
     beforeEach(function() {
-        jasmine.getFixtures().fixturesPath = 'src/test/fixtures/';
-        jasmine.getStyleFixtures().fixturesPath = 'src/test/fixtures/';
-        loadStyleFixtures('mycssfixture.css');
+      var path = '';
+        if (typeof window.__karma__ !== 'undefined') {
+          path += 'base/'
+        } 
+        jasmine.getFixtures().fixturesPath =  path + 'test/fixtures/';
+       // jasmine.getStyleFixtures().fixturesPath = path + 'test/fixtures/';
+      //  loadStyleFixtures('mycssfixture.css');
         loadFixtures('myfixture.html');
         if ( typeof ( console ) !== 'undefined' && console != null) {
             console.log("Log exists!");

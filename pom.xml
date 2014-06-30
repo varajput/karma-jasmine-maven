@@ -41,7 +41,6 @@
                     <skipKarma>false</skipKarma>
                     <skipTests>false</skipTests>
                     <karmaFailureIgnore>false</karmaFailureIgnore>
-                    <reporters>dots,junit</reporters>
                 </configuration>
             </plugin>
         </plugins>
