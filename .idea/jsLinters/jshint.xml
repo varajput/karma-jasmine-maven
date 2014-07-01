@@ -8,8 +8,6 @@
     <option noarg="true" />
     <option noempty="true" />
     <option nonew="true" />
-    <option undef="true" />
-    <option strict="true" />
     <option browser="true" />
     <option maxerr="50" />
   </component>
