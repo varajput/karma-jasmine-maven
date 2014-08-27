@@ -21,7 +21,7 @@ describe("test", function () {
     });
     it("test", function () {
         var returnVal = fun1();
-        expect(returnVal).toEqual(5);
+        expect(returnVal).toEqual(10);
     });
     it('test height', function () {
         var divHeight = checkHeight();
